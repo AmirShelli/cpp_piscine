@@ -77,4 +77,8 @@ class PhoneBook{
 				i++;
 			MyContacts[i].setContact(args);
 		}
+		void search()
+		{
+
+		}
 };
