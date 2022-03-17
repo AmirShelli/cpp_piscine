@@ -1,10 +1,14 @@
+#include <cctype>
+#include <cstdio>
 #include <string.h>
 #include <iostream>
 #include <cstdlib>
+#include <sstream>
 
 
 void myGetline(std::string *input)
 {
+	std::cin.sync();
 	getline(std::cin, *input);
 	if(*input == "EXIT" || *input == "exit")
 		exit(1);
@@ -35,6 +39,15 @@ class Contact{
 			phoneNumber = "";
 			secret = "";
 		}
+		void displayContact()
+		{
+			std::cout
+				<< firstName << std::endl
+				<< lastName << std::endl
+				<< nickname << std::endl
+				<< phoneNumber << std::endl
+				<< secret << std::endl;
+		}
 		void setContact(info args)
 		{
 			this->firstName = args.firstName;
@@ -53,7 +66,6 @@ class Contact{
 class PhoneBook{
 	private:
 		Contact 	MyContacts[9];
-		static int	numberOfContacts;
 		std::string fillInfo(char const *message)
 		{	
 			int flag;
@@ -64,8 +76,8 @@ class PhoneBook{
 				std::cout << "contact's " << message << ": ";
 				myGetline(&input);
 				if((flag = input.empty()))
-					std::cout << "contact's " << message 
-						<< "is empty, please fill in the field." << std::endl;
+					std::cout << "please fill in the contact's " << message 
+						<< std::endl;
 			}
 			return (input);
 		}
@@ -95,23 +107,32 @@ class PhoneBook{
 		}
 		void search()
 		{
+			int num;
 			int i;
-
+			std::string str;
+			
+			num = 0;
 			for (i = 0; i < 8; i++)
 				if(!MyContacts[i].getFirstName().empty())
+				{	
 					displayContact(i);
-			{
-				if(i > 0)
+					num++;
+				}
+			do {
+				if(num)
 				{
-					std::cout << "please provide a valid index to display: ";
-					std::cin >> i;
+					std::cout << "please provide a valid index: ";
+					std::cin >> str;
+					i = stoi(str);
 				} 
 				else
-					std::cout << "no contacts to show.\n"; 
-			} while(i - 1 >= 0 || i - 1 <= 7);
-			displayContact(i - 1); 
-			// will show anyway??? 
-			// error in indexing, set another limit
+					std::cout << "no contacts to show.\n";
+			} while((i - 1 < 0 || i - 1 >= num) && num);
+			if(num)
+			{
+				MyContacts[i - 1].displayContact();
+				std::cin.ignore();
+			}
 		}
 };
 
@@ -122,15 +143,18 @@ int main()
 
 	while(1)
 	{
-		std::cout << "\nwhat would you like to do?\n"
+		std::cout << "\nchoose a command:\n"
 		<< "\tADD\tSEARCH\tEXIT\n";
 		myGetline(&input);
 		if(input == "SEARCH" || input == "search")
 			sample.search();
-		else if((input == "add" || input == "add"))
+		else 
+		{
+			if((input == "add" || input == "add"))
 				sample.add();
-		else
-			std::cout << "sorry, no such option.\n";
-
+			else
+				std::cout << "sorry, no such option.\n";
+		}
+		
 	}
 }
