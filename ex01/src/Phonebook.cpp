@@ -19,12 +19,12 @@ std::string PhoneBook::fillInfo(char const *message)
 void PhoneBook::displayContact(int index)
 		{
 			std::cout << index + 1 << " | "
-				<< setw(10) << MyContacts[index].getFirstName() << " | "
-				<< setw(10) << MyContacts[index].getLastName() << " | "
-				<< setw(10) << MyContacts[index].getNickname() << std::endl;
+				<< std::setw(10) << MyContacts[index].getFirstName() << " | "
+				<< std::setw(10) << MyContacts[index].getLastName() << " | "
+				<< std::setw(10) << MyContacts[index].getNickname() << std::endl;
 		}
 
-void Phonebook::add()
+void PhoneBook::add()
 		{
 			info args;
 			int i;
@@ -41,7 +41,7 @@ void Phonebook::add()
 			MyContacts[i].setContact(args);
 		}
 
-void Phonebook::search()
+void PhoneBook::search()
 		{
 			int num;
 			int i;
