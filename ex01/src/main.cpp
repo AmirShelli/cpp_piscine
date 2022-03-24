@@ -35,7 +35,6 @@ int main()
 				sample.add();
 			else
 				std::cout << "sorry, no such option.\n";
-		}
-		
+		}	
 	}
 }

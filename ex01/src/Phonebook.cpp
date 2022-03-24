@@ -23,6 +23,7 @@ void helpDisplay(std::string str)
 		std::cout << str.substr(0, 9) << ".";
 	else
 		std::cout << std::setw(10) << str;
+	std::cout << "|";
 }
 
 std::string PhoneBook::fillInfo(char const *message)
@@ -47,6 +48,7 @@ void PhoneBook::displayContact(int index)
 	helpDisplay( MyContacts[index].getFirstName());
 	helpDisplay( MyContacts[index].getLastName());
 	helpDisplay( MyContacts[index].getNickname());
+	std::cout << std::endl;
 }
 
 void PhoneBook::add()

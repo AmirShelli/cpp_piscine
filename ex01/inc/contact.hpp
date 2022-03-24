@@ -11,6 +11,7 @@ class Contact{
 		std::string secret;
 	public:
 		Contact();
+		~Contact();
 		void displayContact();
 		void setContact(info args);
 		std::string getFirstName();

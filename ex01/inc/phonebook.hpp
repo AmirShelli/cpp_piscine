@@ -8,6 +8,7 @@ class PhoneBook{
 		std::string fillInfo(char const *message);
 		void displayContact(int index);
 	public:
+		~PhoneBook();
 		void add();
 		void search();
 };
