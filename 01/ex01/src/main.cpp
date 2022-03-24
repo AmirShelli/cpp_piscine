@@ -1,14 +1,13 @@
 #include "../inc/Zombie.hpp"
 
-Zombie* newZombie(std::string name);
-void randomChump(std::string name);
+Zombie*	zombieHorde(int N, std::string name);
 
 int main()
 {
 	Zombie *sample;
 
-	sample = newZombie("hype boi");
-	sample->announce();
-	randomChump("Stacc boi");
+	sample = zombieHorde(5, "meme lord");
+	for (int i = 0; i <= 5; i++)
+		sample[i].announce();
 	delete sample;
 }
