@@ -1,4 +1,29 @@
 #include "../inc/phonebook.hpp"
+#include <cctype>
+#include <math.h>
+#include <cstdio>
+
+int todigit(std::string str)
+{
+	int res;
+
+	res = 0;
+	for(int i = str.size() - 1; i >= 0 ; i--)
+	{	
+		if(!isdigit(str[i]))
+			return (-1);
+		res += (str[i] - 48) * pow(10, i);
+	}
+	return(res);
+}
+
+void helpDisplay(std::string str)
+{
+	if (str.length() > 10)
+		std::cout << str.substr(0, 9) << ".";
+	else
+		std::cout << std::setw(10) << str;
+}
 
 std::string PhoneBook::fillInfo(char const *message)
 {	
@@ -17,56 +42,56 @@ std::string PhoneBook::fillInfo(char const *message)
 }
 
 void PhoneBook::displayContact(int index)
-		{
-			std::cout << index + 1 << " | "
-				<< std::setw(10) << MyContacts[index].getFirstName() << " | "
-				<< std::setw(10) << MyContacts[index].getLastName() << " | "
-				<< std::setw(10) << MyContacts[index].getNickname() << std::endl;
-		}
+{
+	std::cout << std::setw(10) << index + 1 << " | ";
+	helpDisplay( MyContacts[index].getFirstName());
+	helpDisplay( MyContacts[index].getLastName());
+	helpDisplay( MyContacts[index].getNickname());
+}
 
 void PhoneBook::add()
-		{
-			info args;
-			int i;
+{
+	info args;
+	int i;
 
-			args.firstName		= fillInfo("first name");
-			args.lastName		= fillInfo("last name");
-			args.nickname		= fillInfo("nickname");
-			args.phoneNumber	= fillInfo("phone number");
-			args.secret 		= fillInfo("secret");
-			i = 0;
-			while(!(MyContacts[i].getFirstName().empty())
-				&& i < 9)
-				i++;
-			MyContacts[i].setContact(args);
-		}
+	args.firstName		= fillInfo("first name");
+	args.lastName		= fillInfo("last name");
+	args.nickname		= fillInfo("nickname");
+	args.phoneNumber	= fillInfo("phone number");
+	args.secret 		= fillInfo("secret");
+	i = 0;
+	while(!(MyContacts[i].getFirstName().empty())
+		&& i < 9)
+		i++;
+	MyContacts[i].setContact(args);
+}
 
 void PhoneBook::search()
-		{
-			int num;
-			int i;
-			std::string str;
-			
-			num = 0;
-			for (i = 0; i < 8; i++)
-				if(!MyContacts[i].getFirstName().empty())
-				{	
-					displayContact(i);
-					num++;
-				}
-			do {
-				if(num)
-				{
-					std::cout << "please provide a valid index: ";
-					std::cin >> str;
-					i = stoi(str);
-				} 
-				else
-					std::cout << "no contacts to show.\n";
-			} while((i - 1 < 0 || i - 1 >= num) && num);
-			if(num)
-			{
-				MyContacts[i - 1].displayContact();
-				std::cin.ignore();
-			}
+{
+	int num;
+	int i;
+	std::string str;
+	
+	num = 0;
+	for (i = 0; i < 8; i++)
+		if(!MyContacts[i].getFirstName().empty())
+		{	
+			displayContact(i);
+			num++;
 		}
+	do {
+		if(num)
+		{
+			std::cout << "please provide a valid index: ";
+			std::cin >> str;
+			i = todigit(str);
+		} 
+		else
+			std::cout << "no contacts to show.\n";
+	} while((i - 1 < 0 || i - 1 >= num) && num);
+	if(num)
+	{
+		MyContacts[i - 1].displayContact();
+		std::cin.ignore();
+	}
+}

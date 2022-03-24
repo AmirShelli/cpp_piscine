@@ -3,11 +3,20 @@
 
 # include <cctype>
 # include <cstdio>
-# include <string.h>
+# include <string>
 # include <iostream>
 # include <cstdlib>
 # include <sstream>
 # include <iomanip>
+
+enum numeration
+{
+	firstName,
+	lastName,
+	nickname,
+	phoneNumber,
+	secret
+};
 
 struct info
 {
