@@ -9,7 +9,7 @@ int main()
 
 	std::cout << "first task" << std::endl;
 	std::cout << &stringCST << std::endl;
-	std::cout << &stringPTR << std::endl;
+	std::cout << stringPTR << std::endl;
 	std::cout << &stringREF << std::endl;
 
 	std::cout << "second task" << std::endl;
