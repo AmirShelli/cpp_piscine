@@ -9,5 +9,5 @@ int main()
 	sample = zombieHorde(5, "meme lord");
 	for (int i = 0; i <= 5; i++)
 		sample[i].announce();
-	delete sample;
+	delete [] sample;
 }
