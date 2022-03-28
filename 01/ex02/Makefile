@@ -1,10 +1,10 @@
 NAME = StringTest
 
-SRCS =  $(wildcard ./src/*.cpp)
+SRCS =  $(wildcard ./*.cpp)
 
 OBJS = $(SRCS:.c=.o)
 
-INCLUDES = -I $(wildcard ./src/*.hpp)
+INCLUDES = -I $(wildcard ./*.hpp)
 
 CC = c++ -Wall -Wextra -Werror -std=c++98
 

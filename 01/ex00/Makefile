@@ -4,7 +4,7 @@ SRCS =  $(wildcard ./src/*.cpp)
 
 OBJS = $(SRCS:.c=.o)
 
-INCLUDES = -I $(wildcard ./src/*.hpp)
+INCLUDES = -I $(wildcard ./inc/*.hpp)
 
 CC = c++ -Wall -Wextra -Werror -std=c++98
 
