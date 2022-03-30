@@ -20,5 +20,5 @@ void HumanB::attack()
 {
 	std::cout << this->name 
 		<< " attacks with their " 
-		<< this->myWeapon.getType();
+		<< this->myWeapon.getType() << std::endl;
 }

@@ -4,14 +4,14 @@ SRCS =  $(wildcard ./src/*.cpp)
 
 OBJS = $(SRCS:.c=.o)
 
-INCLUDES = -I $(wildcard ./inc/*.hpp)
+INCLUDES = -I ./inc
 
 CC = g++ -Wall -Wextra -Werror -std=c++98
 
 all : $(NAME)
 
 $(NAME): $(OBJS)
-	@$(CC) $(INCLUDES) $(OBJS)
+	@$(CC) $(INCLUDES) $(OBJS) -o $(NAME)
 
 %.o: %.c
 	@$(CC) $(CFLAGS) $< -c -o $@
