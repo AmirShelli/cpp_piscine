@@ -1,6 +1,6 @@
-NAME = Violence
+NAME = Sed
 
-SRCS =  $(wildcard ./src/*.cpp)
+SRCS =  $(wildcard ./*.cpp)
 
 OBJS = $(SRCS:.c=.o)
 
