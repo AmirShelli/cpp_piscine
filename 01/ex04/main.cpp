@@ -1,34 +1,41 @@
+#include <cstdio>
 #include <iostream>
 #include <fstream>
 #include <istream>
 #include <cstring>
 
-void replace(char **str, char *s1, char *s2)
+void replace(std::string &str, char *s1, char *s2)
 {
-	while(std::strstr(*str, s1))
+	int found;
+
+	while((found = str.find(s1)) != -1)
 	{
-		//change() ?
+		str.erase(found, strlen(s1));
+		str.insert(found, s2);
 	}
+	std::cout << str << std::endl;
 }
 
 int main(int ac, char *av[])
 {
 	std::ofstream fout;
 	std::ifstream fin;
+	std::string line;
+	char *file = strdup(av[1]);
 
-	char *line;
-	if(ac < 4)
+	if(ac == 4)
 	{
-		fin.open(av[1]);
-		fout.open(std::strcat(av[1] , ".replace"));
-		while(fout && fin)
-		{
-			fin.getline(line, std::strlen(line));
-			replace(&line, av[2], av[3]);
+		fin.open(file);
+		fout.open(std::strcat(file , ".replace"));	
+		while(getline(fin, line))
+		{	
+			replace(line, av[2], av[3]);
 			fout << line << std::endl;
 		}
-		//eof?
+		delete file;
+		fin.close();
+		fout.close();
 	}
-	fin.close();
-    fout.close();
+	else 
+		std::cout << "not enough arguments" << std::endl; 
 }
