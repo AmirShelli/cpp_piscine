@@ -1,21 +1,21 @@
 #include<iostream>
+#include <math.h>
 
 class Fixed{
 private:
-	int _value;
+	int _raw;
 	static const int _frac_bit = 8;
 public:
+	~Fixed();
 	Fixed();
 	Fixed(const Fixed &other);
-	Fixed(const int value);
-	Fixed(const float value);
-	~Fixed();
+	Fixed(const int raw);
+	Fixed(const float raw);
 	Fixed operator =(const Fixed &other);
-	std::ostream operator <<(const Fixed &obj) const;
+	int getRawBits() const;
+	void setRawBits(int const raw);
 	float toFloat() const;
 	int toInt() const;
-	int getRawBits() const;
-	void setRawBits(int const value);
-
-
 };
+
+std::ostream& operator <<(std::ostream& stream, const Fixed &obj);
