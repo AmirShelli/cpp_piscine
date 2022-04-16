@@ -1,4 +1,4 @@
-NAME = Animal
+NAME = ScavTrap
 
 SRCS =  $(wildcard ./src/*.cpp)
 

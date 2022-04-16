@@ -1,4 +1,4 @@
-NAME = Animal
+NAME = FragTrap
 
 SRCS =  $(wildcard ./src/*.cpp)
 
