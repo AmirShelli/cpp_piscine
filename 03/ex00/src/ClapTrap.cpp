@@ -5,35 +5,31 @@ ClapTrap::ClapTrap()
 	std::cout << "ClapTrap default constructor called" << std::endl;
 }
 
-ClapTrap::ClapTrap(std::string name) 
-{
-	std::cout << "ClapTrap constructor called" << std::endl;
-	this->_name = name;
-	this->_hit = 10;
-	this->_energy = 10;
-	this->_attack = 0;
-}
-
 ClapTrap::~ClapTrap()
 {
-	std::cout << "ClapTrap destructor called" << std::endl;
+	std::cout << "Destructor called" << std::endl;
 }
 
-ClapTrap& ClapTrap::operator =(ClapTrap &other) 
+ClapTrap::ClapTrap(std::string name):_name(name), _hit(10), _energy(10), _attack(0)
 {
-	std::cout << "Copy assignment operator called" << std::endl;
+	std::cout << "Initialize constructor called" << std::endl;
+}
+
+ClapTrap::ClapTrap(const ClapTrap &other)
+{
+	std::cout << "Copy Constructor Called" << std::endl;
+	*this = other;
+}
+
+ClapTrap & ClapTrap::operator= (const ClapTrap &other)
+{
+	std::cout << "Assignation Operator Called" << std::endl;
 	this->_name = other._name;
 	this->_hit = other._hit;
 	this->_energy = other._energy;
 	this->_attack = other._attack;
-	return *this;
+	return (*this);
 }
-
-// ClapTrap::ClapTrap(const ClapTrap &other)
-// {
-// 	std::cout << "Copy constructor called" << std::endl;
-// 	other = this;
-// }
 
 void ClapTrap::attack(const std::string& target)
 {
