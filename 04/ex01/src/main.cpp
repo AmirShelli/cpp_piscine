@@ -4,8 +4,7 @@
 #include <iostream>
 
 int main()
-{
-
+{ // TODO: implement the tests!!!!
 	std::cout << "\t### Animal ###"<<std::endl;
 
     // const Animal* meta = new Animal();
