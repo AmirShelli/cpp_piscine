@@ -1,4 +1,4 @@
-NAME = FragTrap
+NAME = Brain
 
 SRCS =  $(wildcard ./src/*.cpp)
 
