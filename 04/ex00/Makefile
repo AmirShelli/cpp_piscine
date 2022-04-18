@@ -1,4 +1,4 @@
-NAME = Animal
+NAME = Inheritance
 
 SRCS =  $(wildcard ./src/*.cpp)
 

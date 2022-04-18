@@ -1,4 +1,4 @@
-NAME = Brain
+NAME = Polymorphism
 
 SRCS =  $(wildcard ./src/*.cpp)
 

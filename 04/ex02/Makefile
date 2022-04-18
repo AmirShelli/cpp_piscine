@@ -1,4 +1,4 @@
-NAME = FragTrap
+NAME = Abstract
 
 SRCS =  $(wildcard ./src/*.cpp)
 
