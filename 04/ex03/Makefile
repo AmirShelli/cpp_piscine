@@ -1,21 +1,27 @@
-NAME = materia
+NAME = Interface
 
-FLAGS = -Wall -Wextra -Werror
+SRCS =  $(wildcard ./src/*.cpp)
 
-SCRS = AMateria.cpp Cure.cpp Ice.cpp Character.cpp MateriaSource.cpp main.cpp
+OBJS = $(SRCS:.c=.o)
 
-INC = AMateria.hpp Character.hpp Ice.hpp Cure.hpp MateriaSource.hpp ICharacter.hpp IMateriaSource.hpp
-OBJ = $(SCRS:.cpp=.o)
+INCLUDES = -I ./inc
+
+CC = g++ -Wall -Wextra -Werror -std=c++98
 
 all : $(NAME)
 
-$(NAME) : $(OBJ)
-	clang++ $(FLAGS) $^ -o $@
-%.o:%.cpp $(INC)
-	clang++ $(FLAGS) -c $<
+$(NAME): $(OBJS)
+	@$(CC) $(INCLUDES) $(OBJS) -o $(NAME)
 
-clean:
-	rm -f $(OBJ)
-fclean: clean
-	rm -f $(NAME)
-re: fclean $(NAME)
+%.o: %.c
+	@$(CC) $(CFLAGS) $< -c -o $@
+
+clean :
+	@rm -rf $(wildcard ./*.gch.*)
+	@rm -rf $(wildcard ./*/*.gch.*)
+	@rm -rf $(wildcard ./*/*/*.gch.*)
+
+fclean : clean
+	@rm -rf $(NAME)
+
+re : fclean all
