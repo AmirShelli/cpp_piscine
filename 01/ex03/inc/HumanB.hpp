@@ -1,4 +1,6 @@
-#pragma once
+#ifndef HUMANB_HPP
+#define HUMANB_HPP
+
 #include "./Weapon.hpp"
 
 
@@ -11,3 +13,4 @@ class HumanB{
 		void attack();
 		void setWeapon(Weapon &myWeapon);
 };
+#endif
