@@ -1,7 +1,10 @@
 #ifndef BUREAUCRAT_HPP
 # define BUREAUCRAT_HPP
+
 #include <iostream>
 #include <string.h>
+
+class Form;
 
 class Bureaucrat
 {
@@ -18,7 +21,7 @@ public:
 	const std::string &getName() const;
 	void promote() throw(std::exception);
 	void demote() throw(std::exception);
-
+	void signForm(Form &form);
 	class GradeTooHighException : public std::exception
     {
     public:

@@ -11,10 +11,19 @@ Form::~Form()
 	std::cout << "Destructor called for " << this->_name << std::endl;
 }
 
+const char *Form::GradeTooLowException::what(void) const _NOEXCEPT
+{
+    return ("Grade is too low!");
+}
+
 Form::Form(const std::string name, const int sign, const int exec): _name(name), _gradeSign(sign), _gradeExec(exec)
 {
 	std::cout << "Initialize constructor called for Form " << _name << std::endl;
 	this->_isSigned = 0;
+	if (_gradeSign < 1 || _gradeExec < 1)
+        throw GradeTooHighException();
+    else if (_gradeSign > 150 || _gradeExec > 150)
+        throw GradeTooLowException();
 }
 
 const std::string &Form::getName() const
@@ -34,4 +43,19 @@ const int &Form::getGrdExec() const
 	return _gradeExec;
 }
 
-void
+void Form::beSigned(Bureaucrat a)
+{
+	if(a.getGrade() <= _gradeSign)
+		this->_isSigned = 1;
+	else
+		throw GradeTooLowException();
+}
+
+std::ostream &operator<<(std::ostream &os, Form obj)
+{
+	os << "Form " << obj.getName() <<":\n"
+	<< "signture? " <<obj.getStatus() << std::endl
+	<< "needed grade to sign? " <<obj.getGrdSign() << std::endl
+	<< "needed grade to execute?" <<obj.getGrdExec() << std::endl;
+	return os;
+}

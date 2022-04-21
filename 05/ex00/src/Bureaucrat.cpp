@@ -1,4 +1,5 @@
 #include "../inc/Bureaucrat.hpp"
+#include "../inc/Form.hpp"
 
 Bureaucrat::Bureaucrat()
 {

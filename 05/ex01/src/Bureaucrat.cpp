@@ -1,4 +1,5 @@
 #include "../inc/Bureaucrat.hpp"
+#include "../inc/Form.hpp"
 
 Bureaucrat::Bureaucrat()
 {
@@ -61,6 +62,20 @@ void Bureaucrat::demote(void) throw(std::exception)
 Bureaucrat::~Bureaucrat(void) 
 {
 	std::cout << "Destructor called for bureaucrat " << getName() << std::endl;
+}
+
+void Bureaucrat::signForm(Form &form)
+{
+    try
+    {
+        form.beSigned(*this);
+        std::cout << this->_name << " signs " << form.getName() << std::endl;
+    }
+    catch (const std::exception &e)
+    {
+		std::cerr << this->_name << " cannot sign "
+		<< form.getName() << " because " << e.what() << std::endl;
+	}
 }
 
 std::ostream &operator<<(std::ostream &os, Bureaucrat &obj)
