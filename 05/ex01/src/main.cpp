@@ -1,7 +1,7 @@
 #include "../inc/Bureaucrat.hpp"
 #include <ostream>
 
-std::ostream &operator<<(std::ostream &os, Bureaucrat &obj)
+std::ostream &operator<<(std::ostream &os, Bureaucrat obj)
 {
 	os << obj.getName() << ", bureaucrat grade " << obj.getGrade();
 	return os;
@@ -23,6 +23,6 @@ int main()
 	// 	std::cout << "oops, you seem to have an error." << std::endl;
     //     std::cerr << e.what() << '\n';
     // }
-    std::cout << "hello\n";
+    
     return 0;
 }

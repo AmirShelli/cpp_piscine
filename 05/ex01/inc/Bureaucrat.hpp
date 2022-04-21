@@ -12,8 +12,8 @@ public:
 	Bureaucrat();
 	Bureaucrat(const std::string name, int grade);
 	~Bureaucrat();
-	Bureaucrat(const Bureaucrat& obj);
-	Bureaucrat& operator= (const Bureaucrat &obj);
+	// Bureaucrat(const Bureaucrat& obj);
+	// Bureaucrat& operator= (const Bureaucrat &obj);
 	int &getGrade();
 	const std::string &getName() const;
 	void promote();

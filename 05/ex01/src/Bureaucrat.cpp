@@ -16,18 +16,19 @@ Bureaucrat::Bureaucrat(const std::string name, int grade): _name(name)
 	this->_grade = grade;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat &other)
-{
-	std::cout << "Copy Constructor Called" << std::endl;
-	*this = other;
-}
+// Bureaucrat::Bureaucrat(const Bureaucrat &other)
+// {
+// 	std::cout << "Copy Constructor Called" << std::endl;
+// 	*this = other;
+// }
 
-Bureaucrat & Bureaucrat::operator= (const Bureaucrat &other)
-{
-	std::cout << "Assignation Operator Called" << std::endl;
-	this->_grade = other._grade;
-	return (*this);
-}
+// Bureaucrat & Bureaucrat::operator= (const Bureaucrat &other)
+// {
+// 	std::cout << "Assignation Operator Called" << std::endl;
+// 	// this->_name = other._name; ?
+// 	this->_grade = other._grade;
+// 	return (*this);
+// }
 
 int &Bureaucrat::getGrade()
 {

@@ -1,24 +1,26 @@
-NAME = ZombieHorde
+NAME = Horde
 
-SRCS =  $(wildcard ./src/*.cpp)
+SRC =	$(wildcard ./src/*.cpp)
+INC = $(wildcard ./src/*.hpp)
+OBJ	= $(SRC:.cpp=.o)
 
-OBJS = $(SRCS:.c=.o)
+CC = c++
+FLAG = -Wall -Wextra -Werror -std=c++98
 
-INCLUDES = -I $(wildcard ./inc/*.hpp)
+.PHONY: all bonus clean fclean re
 
-CC = c++ -Wall -Wextra -Werror -std=c++98
+all: $(NAME)
 
-all : $(NAME)
+$(NAME): $(OBJ) $(INC)
+	@$(CC) $(FLAG) $(OBJ) -o $(NAME)
 
-$(NAME): $(OBJS)
-	@$(CC) -I $(INCLUDES) -o $(NAME) $(OBJS)
+%.o: %.cpp %.hpp
+	@$(CC) $(FLAG) -c $< -o $@
 
-clean :
-	@rm -rf $(wildcard ./*.o)
-	@rm -rf $(wildcard ./*/*.o)
-	@rm -rf $(wildcard ./*/*/*.o)
+clean:
+	@rm -f $(OBJ)
 
-fclean : clean
-	@rm -rf $(NAME)
+fclean: clean
+	@rm -f $(NAME)
 
-re : fclean all
+re: fclean all
