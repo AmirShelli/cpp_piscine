@@ -5,11 +5,6 @@ Bureaucrat::Bureaucrat()
 	std::cout << "Bureaucrat default constructor called" << std::endl;
 }
 
-Bureaucrat::~Bureaucrat()
-{
-	std::cout << "Destructor called" << std::endl;
-}
-
 Bureaucrat::Bureaucrat(const std::string name, int grade): _name(name)
 {
 	std::cout << "Initialize constructor called" << std::endl;
@@ -39,17 +34,38 @@ const std::string &Bureaucrat::getName() const
 	return this->_name;
 }
 
-void Bureaucrat::promote()
+const char *Bureaucrat::GradeTooHighException::what(void) const _NOEXCEPT
 {
-	_grade--;
-	if (_grade < 1)
-		throw std::exception();
+    return ("Grade is too high!");
 }
 
-void Bureaucrat::demote()
+const char *Bureaucrat::GradeTooLowException::what(void) const _NOEXCEPT
 {
-	_grade++;
-	if (_grade > 150)
-		throw std::exception();
+    return ("Grade is too low!");
+}
+
+void Bureaucrat::promote(void) throw(std::exception)
+{
+    if (_grade == 1)
+        throw GradeTooHighException();
+    _grade -= 1;
+}
+
+void Bureaucrat::demote(void) throw(std::exception)
+{
+    if (_grade == 150)
+        throw GradeTooLowException();
+    _grade += 1;
+}
+
+Bureaucrat::~Bureaucrat(void) 
+{
+	std::cout << "Destructor called for bureaucrat " << getName() << std::endl;
+}
+
+std::ostream &operator<<(std::ostream &os, Bureaucrat &obj)
+{
+	os << obj.getName() << ", bureaucrat grade " << obj.getGrade();
+	return os;
 }
 

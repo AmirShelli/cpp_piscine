@@ -16,7 +16,22 @@ public:
 	Bureaucrat& operator= (const Bureaucrat &obj);
 	int &getGrade();
 	const std::string &getName() const;
-	void promote();
-	void demote();
+	void promote() throw(std::exception);
+	void demote() throw(std::exception);
+
+	class GradeTooHighException : public std::exception
+    {
+    public:
+        const char *what(void) const _NOEXCEPT;
+    };
+
+    class GradeTooLowException : public std::exception
+    {
+	public:
+        const char *what(void) const _NOEXCEPT;
+    };
 };
+
+std::ostream &operator<<(std::ostream &os, Bureaucrat &obj);
+
 #endif
