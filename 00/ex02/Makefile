@@ -1,4 +1,4 @@
-NAME = Phonebook
+NAME = Account
 
 SRC =	$(wildcard ./src/*.cpp)
 INC = $(wildcard ./src/*.hpp)

@@ -68,6 +68,8 @@ void PhoneBook::add()
 	MyContacts[i].setContact(args);
 }
 
+PhoneBook::~PhoneBook() {}
+
 void PhoneBook::search()
 {
 	int num;

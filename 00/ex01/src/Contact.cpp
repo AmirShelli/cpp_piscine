@@ -9,6 +9,8 @@ Contact::Contact()
 	secret = "";
 }
 
+Contact::~Contact(){}
+
 void Contact::displayContact()
 {
 	std::cout
