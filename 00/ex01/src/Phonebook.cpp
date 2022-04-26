@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Phonebook.cpp                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bharghaz <bharghaz@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/26 17:35:11 by bharghaz          #+#    #+#             */
+/*   Updated: 2022/04/26 22:11:56 by bharghaz         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../inc/phonebook.hpp"
 #include <cctype>
 #include <math.h>
@@ -63,7 +75,7 @@ void PhoneBook::add()
 	args.secret 		= fillInfo("secret");
 	i = 0;
 	while(!(MyContacts[i].getFirstName().empty())
-		&& i < 9)
+		&& i < 7)
 		i++;
 	MyContacts[i].setContact(args);
 }
