@@ -13,7 +13,12 @@ Form::~Form()
 
 const char *Form::GradeTooLowException::what(void) const _NOEXCEPT
 {
-    return ("Grade is too low!");
+    return ("grade is too low!");
+}
+
+const char *Form::GradeTooHighException::what(void) const _NOEXCEPT
+{
+    return ("grade is too high!");
 }
 
 Form::Form(const std::string name, const int sign, const int exec): _name(name), _gradeSign(sign), _gradeExec(exec)

@@ -1,16 +1,4 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: yait-kad <yait-kad@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/15 15:12:09 by yait-kad          #+#    #+#             */
-/*   Updated: 2022/01/16 15:23:36 by yait-kad         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-#include "ShrubberyCreationForm.hpp"
+#include "../inc/ShrubberyCreationForm.hpp"
 
 ShrubberyCreationForm::ShrubberyCreationForm()
 {

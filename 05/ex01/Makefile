@@ -1,4 +1,4 @@
-NAME = Bureaucrat
+NAME = Signature
 
 SRC =	$(wildcard ./src/*.cpp)
 INC = $(wildcard ./src/*.hpp)

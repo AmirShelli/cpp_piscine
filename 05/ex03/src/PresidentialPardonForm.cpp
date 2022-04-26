@@ -1,16 +1,4 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   PresidentialPardonForm.cpp                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: yait-kad <yait-kad@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/15 15:13:31 by yait-kad          #+#    #+#             */
-/*   Updated: 2022/01/16 15:22:48 by yait-kad         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-#include "PresidentialPardonForm.hpp"
+#include "../inc/PresidentialPardonForm.hpp"
 
 PresidentialPardonForm::PresidentialPardonForm()
 {

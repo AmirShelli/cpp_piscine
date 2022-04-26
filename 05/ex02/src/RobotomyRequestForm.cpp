@@ -1,16 +1,4 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: yait-kad <yait-kad@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/15 15:13:36 by yait-kad          #+#    #+#             */
-/*   Updated: 2022/01/16 20:07:16 by yait-kad         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-#include "RobotomyRequestForm.hpp"
+#include "../inc/RobotomyRequestForm.hpp"
 
 RobotomyRequestForm::RobotomyRequestForm()
 {

@@ -9,21 +9,25 @@ Bureaucrat::Bureaucrat()
 Bureaucrat::Bureaucrat(const std::string name, int grade): _name(name)
 {
 	std::cout << "Initialize constructor called" << std::endl;
+	if(grade < 1)
+		throw GradeTooHighException();
+	if(grade > 150)
+		throw GradeTooLowException();
 	this->_grade = grade;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat &other)
-{
-	std::cout << "Copy Constructor Called" << std::endl;
-	*this = other;
-}
+// Bureaucrat::Bureaucrat(const Bureaucrat &other)
+// {
+// 	std::cout << "Copy Constructor Called" << std::endl;
+// 	*this = other;
+// }
 
-Bureaucrat & Bureaucrat::operator= (const Bureaucrat &other)
-{
-	std::cout << "Assignation Operator Called" << std::endl;
-	this->_grade = other._grade;
-	return (*this);
-}
+// Bureaucrat & Bureaucrat::operator= (const Bureaucrat &other)
+// {
+// 	std::cout << "Assignation Operator Called" << std::endl;
+// 	this->_grade = other._grade;
+// 	return (*this);
+// }
 
 int &Bureaucrat::getGrade()
 {

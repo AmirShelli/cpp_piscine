@@ -1,16 +1,4 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: yait-kad <yait-kad@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/14 11:15:54 by yait-kad          #+#    #+#             */
-/*   Updated: 2022/01/16 20:00:01 by yait-kad         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-#include "Bureaucrat.hpp"
+#include "../inc/Bureaucrat.hpp"
 
 Bureaucrat::Bureaucrat()
 {
@@ -64,16 +52,16 @@ const int & Bureaucrat::getGrade() const
 
 void Bureaucrat::increment()
 {
-    _grade--;
-    if (_grade < 1)
+    if (_grade == 1)
         throw GradeTooHighException();
+	_grade--;
 }
 
 void Bureaucrat::decrement()
 {
-    _grade++;
-    if (_grade > 150)
+    if (_grade == 150)
         throw GradeTooLowException();
+	_grade++;
 }
 
 std::ostream & operator<<(std::ostream & os, Bureaucrat const & b)

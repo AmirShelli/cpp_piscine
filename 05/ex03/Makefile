@@ -1,21 +1,27 @@
-NAME = Form
+NAME = Intern
 
-FLAGS = -Wall -Wextra -Werror
+SRCS =  $(wildcard ./src/*.cpp)
 
-SCRS = Form.cpp Intern.cpp PresidentialPardonForm.cpp RobotomyRequestForm.cpp ShrubberyCreationForm.cpp Bureaucrat.cpp main.cpp
+OBJS = $(SRCS:.c=.o)
 
-INC =  Bureaucrat.hpp Form.hpp ShrubberyCreationForm.hpp RobotomyRequestForm.hpp PresidentialPardonForm.hpp Intern.hpp
-OBJ = $(SCRS:.cpp=.o)
+INCLUDES = -I ./inc
+
+CC = g++ -Wall -Wextra -Werror -std=c++98
 
 all : $(NAME)
 
-$(NAME) : $(OBJ)
-	clang++ $(FLAGS) $^ -o $@
-%.o:%.cpp $(INC)
-	clang++ $(FLAGS) -c $<
+$(NAME): $(OBJS)
+	@$(CC) $(INCLUDES) $(OBJS) -o $(NAME)
 
-clean:
-	rm -f $(OBJ)
-fclean: clean
-	rm -f $(NAME) *_shrubbery
-re: fclean $(NAME)
+%.o: %.c
+	@$(CC) $(CFLAGS) $< -c -o $@
+
+clean :
+	@rm -rf $(wildcard ./*.gch.*)
+	@rm -rf $(wildcard ./*/*.gch.*)
+	@rm -rf $(wildcard ./*/*/*.gch.*)
+
+fclean : clean
+	@rm -rf $(NAME)
+
+re : fclean all

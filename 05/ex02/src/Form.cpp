@@ -1,16 +1,4 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Form.cpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: yait-kad <yait-kad@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/15 08:46:15 by yait-kad          #+#    #+#             */
-/*   Updated: 2022/01/16 19:58:02 by yait-kad         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-#include "Form.hpp"
+#include "../inc/Form.hpp"
 
 Form::Form():_name(""),_signed(false),_grade_sign(150), _grade_exec(150)
 {
@@ -41,12 +29,12 @@ Form & Form::operator=(const Form &f1)
 
 const char* Form::GradeTooHighException::what() const throw()
 {
-    return ("Grade Too High");
+    return ("grade is too high!");
 }
 
 const char* Form::GradeTooLowException::what() const throw()
 {
-    return("Grade Too Low");
+    return("grade is too low!");
 }
 
 const char* Form::UnsignedFormException::what() const throw()
