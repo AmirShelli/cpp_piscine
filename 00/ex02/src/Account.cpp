@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Account.cpp                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bharghaz <bharghaz@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/26 17:35:20 by bharghaz          #+#    #+#             */
+/*   Updated: 2022/04/26 17:35:20 by bharghaz         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <iostream>
 #include <ctime>
 #include "../inc/Account.hpp"
@@ -78,7 +90,7 @@ bool	Account::makeWithdrawal( int withdrawal )
 	std::cout << " index:" << this->_accountIndex;
 	std::cout << ";p_amount:" << this->_amount;
 	std::cout << ";withdrawal:";
-	if (this->_amount <= withdrawal)
+	if (this->_amount < withdrawal)
 	{
 		std::cout << "refused" << std::endl;
 		return (1);
