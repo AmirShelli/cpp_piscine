@@ -4,7 +4,7 @@ Zombie::Zombie() {}
 
 Zombie::~Zombie() 
 {
-	std::cout << this->name << " was deleted\n";
+	std::cout << this->name << " was deleted.\n";
 }
 
 Zombie::Zombie(std::string name)

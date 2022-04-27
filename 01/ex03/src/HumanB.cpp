@@ -12,7 +12,10 @@ void HumanB::setWeapon(Weapon &myWeapon)
 
 void HumanB::attack()
 {
-	std::cout << this->name 
-		<< " attacks with their " 
-		<< this->myWeapon->getType() << std::endl;
+	if(myWeapon)
+		std::cout << this->name 
+			<< " attacks with their " 
+			<< this->myWeapon->getType() << std::endl;
+	else
+		std::cout << this->name << " doesn't have a weapon to attck with\n";
 }
