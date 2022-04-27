@@ -9,4 +9,5 @@ int main()
     std::cout << "enter a level: ";
     std::cin >> level;
     message->complain(level);
+	delete message;
 }
