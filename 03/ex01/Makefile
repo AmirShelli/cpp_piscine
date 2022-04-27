@@ -1,27 +1,31 @@
 NAME = ScavTrap
 
-SRCS =  $(wildcard ./src/*.cpp)
+SRC = $(wildcard ./src/*.cpp)
 
-OBJS = $(SRCS:.c=.o)
+INC = $(wildcard ./inc/*.hpp)
 
-INCLUDES = -I ./inc
+OBJ = $(SRC:.cpp=.o)
 
-CC = g++ -Wall -Wextra -Werror -std=c++98
+CC = c++
 
-all : $(NAME)
+REM = rm -f
 
-$(NAME): $(OBJS)
-	@$(CC) $(INCLUDES) $(OBJS) -o $(NAME)
+FLAG = -Wall -Wextra -Werror -std=c++98
 
-%.o: %.c
-	@$(CC) $(CFLAGS) $< -c -o $@
+.PHONY: all bonus clean fclean re
 
-clean :
-	@rm -rf $(wildcard ./*.gch.*)
-	@rm -rf $(wildcard ./*/*.gch.*)
-	@rm -rf $(wildcard ./*/*/*.gch.*)
+all: $(NAME)
 
-fclean : clean
-	@rm -rf $(NAME)
+$(NAME): $(OBJ) 
+	$(CC) $(FLAG) $(OBJ) -o $(NAME)
 
-re : fclean all
+%.o: %.cpp %.hpp
+	$(CC) $(FLAG) -c $< -o $@
+
+clean:
+	$(REM) $(OBJ)
+
+fclean: clean
+	$(REM) $(NAME)
+
+re: fclean all

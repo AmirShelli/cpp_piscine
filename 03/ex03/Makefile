@@ -1,21 +1,31 @@
-NAME = repetitive
+NAME = Diamond
 
-FLAGS = -Wall -Wextra -Werror
+SRC = $(wildcard ./src/*.cpp)
 
-SCRS = DiamondTrap.cpp FragTrap.cpp ScavTrap.cpp ClapTrap.cpp main.cpp
+INC = $(wildcard ./inc/*.hpp)
 
-INC = ClapTrap.hpp ScavTrap.hpp FragTrap.hpp DiamondTrap.hpp
-OBJ = $(SCRS:.cpp=.o)
+OBJ = $(SRC:.cpp=.o)
 
-all : $(NAME)
+CC = c++
 
-$(NAME) : $(OBJ)
-	clang++ $(FLAGS) $^ -o $@
-%.o:%.cpp $(INC)
-	clang++ $(FLAGS) -c $<
+REM = rm -f
+
+FLAG = -Wall -Wextra -Werror -std=c++98
+
+.PHONY: all bonus clean fclean re
+
+all: $(NAME)
+
+$(NAME): $(OBJ) 
+	$(CC) $(FLAG) $(OBJ) -o $(NAME)
+
+%.o: %.cpp %.hpp
+	$(CC) $(FLAG) -c $< -o $@
 
 clean:
-	rm -f $(OBJ)
+	$(REM) $(OBJ)
+
 fclean: clean
-	rm -f $(NAME)
-re: fclean $(NAME)
+	$(REM) $(NAME)
+
+re: fclean all
