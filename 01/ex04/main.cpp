@@ -13,7 +13,6 @@ void replace(std::string &str, char *s1, char *s2)
 		str.erase(found, strlen(s1));
 		str.insert(found, s2);
 	}
-	std::cout << str << std::endl;
 }
 
 int main(int ac, char *av[])
@@ -23,7 +22,7 @@ int main(int ac, char *av[])
 	std::string line;
 	char *file = strdup(av[1]);
 
-	if(ac == 4)
+	if(ac == 4 && std::string(av[2]) != "" && std::string(av[3]) != "\0")
 	{
 		fin.open(file);
 		fout.open(std::strcat(file , ".replace"));	
@@ -37,5 +36,8 @@ int main(int ac, char *av[])
 		fout.close();
 	}
 	else 
+	{	
 		std::cout << "not enough arguments" << std::endl; 
+		return (1);
+	}
 }
