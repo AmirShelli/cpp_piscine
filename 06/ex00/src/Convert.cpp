@@ -1,4 +1,4 @@
-#include "../incs/Convert.hpp"
+#include "../inc/Convert.hpp"
 
 static int ft_strlen(std::string const & s);
 

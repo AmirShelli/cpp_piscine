@@ -9,7 +9,7 @@ int main(int argc, char **argv)
     
     if (argc == 2)
     {
-        ConvSca conv;
+        Convert conv;
         tmp_to_treat = argv[1];
         
         try
