@@ -1,6 +1,6 @@
 #include "../inc/ScavTrap.hpp"
 
-ScavTrap::ScavTrap()
+ScavTrap::ScavTrap(): _hitC(100), _energyC(50), _attackC(20)
 {
 	std::cout << "ScavTrap default constructor called SCAV" << std::endl;
 }
@@ -10,20 +10,23 @@ ScavTrap::~ScavTrap()
 	std::cout << "Destructor called SCAV" << std::endl;
 }
 
-ScavTrap::ScavTrap(std::string name): ClapTrap(name)
+ScavTrap::ScavTrap(std::string name)
 {
-	std::cout << "Initializer constructor called SCAV" << std::endl;
+	std::cout << "Initialize constructor called" << std::endl;
 	this->_name = name;
-    this->_hit = 100;
-    this->_energy = 50;
-    this->_attack = 20;
+	this->_hitC = 100;
+	this->_energyC = 50;
+	this->_attackC = 20;
+	this->_hit = this->_hitC;
+	this->_energy = this->_energyC;
+	this->_attack = this->_attackC;
 }
 
-// ScavTrap::ScavTrap(const ScavTrap &st1) //not working on Linux
-// {
-//     std::cout << "Copy constuctor called SCAV" << std::endl;
-//     *this = st1;
-// }
+ScavTrap::ScavTrap(const ScavTrap &st1)
+{
+    std::cout << "Copy constuctor called SCAV" << std::endl;
+    *this = st1;
+}
 
 ScavTrap & ScavTrap::operator= (const ScavTrap &other)
 {

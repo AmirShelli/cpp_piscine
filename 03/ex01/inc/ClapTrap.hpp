@@ -9,6 +9,9 @@ protected:
 	int _hit;
 	int _energy;
 	int _attack;
+	int _hitC;
+	int _energyC;
+	int _attackC;
 public:
 	ClapTrap();
 	ClapTrap(std::string name);
@@ -17,6 +20,8 @@ public:
 	ClapTrap& operator= (const ClapTrap &obj);
 	void attack(const std::string& target);
 	void takeDamage(unsigned int amount);
-	void beRepaired(unsigned int amount);	
+	void beRepaired(unsigned int amount);
+
+	int getAttackDamage() const;
 };
 #endif

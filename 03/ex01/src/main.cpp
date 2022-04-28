@@ -9,6 +9,7 @@ int main()
     s2.attack("TARGET");
     s2.takeDamage(23);
     s2.beRepaired(32);
+	std::cout << s1.getAttackDamage() << std::endl;
     s2.guardGate();
     return 0;
 }
