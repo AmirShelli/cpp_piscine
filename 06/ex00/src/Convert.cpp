@@ -12,16 +12,16 @@ Convert & Convert::operator=(const Convert& op)
 	return (*this);
 }
 
-float       Convert::toTreatable(std::string const & totreat)
+double       Convert::toTreatable(std::string const & totreat)
 {
-	float to_treat;
+	double to_treat;
 
 	try
 	{	
 		if (ft_strlen(totreat) == 3
 			&& totreat[0] == '\''
 			&& totreat[2] == '\'')
-			return (static_cast<float>(totreat[1]));
+			return (static_cast<double>(totreat[1]));
 		to_treat = std::stof(totreat);
 	}
 	catch (std::exception & e) { throw Convert::NotConvertible(); }
@@ -29,31 +29,31 @@ float       Convert::toTreatable(std::string const & totreat)
 	return (to_treat);
 }
 
-float		Convert::toFloat(float f)
+float		Convert::toFloat(double f)
 {
 	return (static_cast<float>(f));
 }
 
-int		Convert::toInt(float f)
+int		Convert::toInt(double f)
 {
 	int i = static_cast<int>(f);
-	if (f == std::numeric_limits<float>::infinity()
-		|| f == -std::numeric_limits<float>::infinity()
+	if (f == std::numeric_limits<double>::infinity()
+		|| f == -std::numeric_limits<double>::infinity()
 		|| std::isnan(f))
 		throw std::string("impossible");
 	return (i);
 }
 
-double       Convert::toDouble(float f)
+double       Convert::toDouble(double f)
 {
 	return (static_cast<double>(f));
 }
 
-char		Convert::toChar(float f)
+char		Convert::toChar(double f)
 {
 	char value = static_cast<char>(f);
-	if (f == std::numeric_limits<float>::infinity()
-		|| f == -std::numeric_limits<float>::infinity()
+	if (f == std::numeric_limits<double>::infinity()
+		|| f == -std::numeric_limits<double>::infinity()
 		|| std::isnan(f))
 		throw std::string("impossible");
 	else if (value < 32 || value > 126)

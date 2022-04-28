@@ -5,7 +5,7 @@
 int main(int argc, char **argv)
 {
     std::string tmp_to_treat;
-    float to_treat;
+    double to_treat;
     
     if (argc == 2)
     {

@@ -15,11 +15,11 @@ class Convert
         virtual ~Convert();
         Convert &operator=(const Convert& op);
 
-        float       toTreatable(std::string const & totreat);
-        float       toFloat(float);
-        int         toInt(float);
-        double      toDouble(float);
-        char        toChar(float);
+        double       toTreatable(std::string const & totreat);
+        float       toFloat(double);
+        int         toInt(double);
+        double      toDouble(double);
+        char        toChar(double);
 
         class NotConvertible : public std::exception
 		{
