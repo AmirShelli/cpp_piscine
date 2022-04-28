@@ -1,4 +1,4 @@
-NAME = Conversion
+NAME = Serialization
 
 SRCS =  $(wildcard ./src/*.cpp)
 

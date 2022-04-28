@@ -1,4 +1,4 @@
-NAME = Conversion
+NAME = Identify
 
 SRCS =  $(wildcard ./src/*.cpp)
 
