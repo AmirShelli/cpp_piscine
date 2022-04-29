@@ -6,14 +6,17 @@
 
 class Dog : public Animal
 {
-private:
-	Brain* brain;
+public:
+	Brain* _brain;
 public:
 	Dog();
 	~Dog();
-	// Dog(const Animal& obj);
+	Dog(const Dog& obj);
 	Dog& operator= (const Dog &obj);
+	Dog(std::string name);
+
 	void makeSound() const;
+	std::string getBrainIdeas(const int i) const;
 };
 
 #endif

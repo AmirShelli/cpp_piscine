@@ -1,4 +1,4 @@
-NAME = Abstract
+NAME = Abstraction
 
 SRCS =  $(wildcard ./src/*.cpp)
 

@@ -2,13 +2,19 @@
 
 Dog::Dog()
 {
-	std::cout << "Dog default constructor called" << std::endl;
+	std::cout << "a Dog was born!" << std::endl;
 	this->_type = "Dog";
 }
 
 Dog::~Dog()
 {
-	std::cout << "Dog destructor called" << std::endl;
+	std::cout << "no Dogs in my house!" << std::endl;
+}
+
+Dog::Dog(const Dog &other): Animal(other)
+{
+	std::cout << "Dog is a copy... cat?" << std::endl;
+	*this = other;
 }
 
 Dog & Dog::operator= (const Dog &other)
@@ -20,5 +26,5 @@ Dog & Dog::operator= (const Dog &other)
 
 void Dog::makeSound() const
 {
-	std::cout << "Bark!" << std::endl;
+	std::cout << "Bark!!!" << std::endl;
 }

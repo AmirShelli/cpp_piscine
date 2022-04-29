@@ -2,22 +2,22 @@
 
 Animal::Animal()
 {
-	std::cout << "Animal default constructor called" << std::endl;
+	std::cout << "Animal was created by default" << std::endl;
 }
 
 Animal::~Animal()
 {
-	std::cout << "Animal destructor called" << std::endl;
+	std::cout << "Animal died" << std::endl;
 }
 
 Animal::Animal(std::string name):_type(name)
 {
-	std::cout << "Animal initialize constructor called" << std::endl;
+	std::cout << "Animal's string constructor'" << std::endl;
 }
 
 Animal::Animal(const Animal &other)
 {
-	std::cout << "Animal copy constructor called" << std::endl;
+	std::cout << "Animal copied someone" << std::endl;
 	*this = other;
 }
 
@@ -30,7 +30,7 @@ Animal & Animal::operator= (const Animal &other)
 
 void Animal::makeSound() const
 {
-    std::cout << "the animal makes sound" << std::endl;
+    std::cout << "grrr" << std::endl;
 }
 
 std::string Animal::getType() const

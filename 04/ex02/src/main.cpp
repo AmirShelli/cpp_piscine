@@ -5,35 +5,29 @@
 
 int main()
 {
-	std::cout << "\t### Animal ###"<<std::endl;
+	// doesn't compile because Animal is an abstract class!
+	// Animal *a = new Animal();
+	// Animal b;
 
-    // const Animal* meta = new Animal();
-    // const Animal* j = new Dog();
-    // const Animal* i = new Cat();
-    // std::cout << j->getType() << ": ";
-	// j->makeSound();
-    // std::cout << i->getType() << ": ";
-	// i->makeSound();
-    // will output the cat sound!
-    // meta->makeSound();
-    
-    // delete meta;
-    // delete j;
-    // delete i;
+	// compiles with a new method!
+	const Animal *dog1 = new Dog("dog1");
+    const Animal *dog2 = new Dog("dog2");
+    const Animal *dog3 = new Dog("dog3");
+    const Animal *dog4 = new Dog("dog4");
+    const Animal *dog5 = new Dog("dog5");
+    const Animal *cat1 = new Cat("cat1");
+    const Animal *cat2 = new Cat("cat2");
+    const Animal *cat3 = new Cat("cat3");
+    const Animal *cat4 = new Cat("cat4");
+    const Animal *cat5 = new Cat("cat5");
 
-	Animal *m[10];
+    const Animal *arr[] = {dog1, dog2, dog3, dog4, dog5, cat1, cat2, cat3, cat4, cat5};
+
     for (int i = 0; i < 10; i++)
     {
-        if (i < 5)
-            m[i] = new Dog();
-        else
-            m[i] = new Cat();
+        std::cout << arr[i]->getBrainIdeas(i) << std::endl;
+        arr[i]->makeSound();
+        delete arr[i];
     }
-    for (int j = 0; j < 10; j++)
-    {
-        delete m[j];
-    }
-    
-
 	return 0;
 }

@@ -18,6 +18,12 @@ WrongCat & WrongCat::operator= (const WrongCat &other)
 	return (*this);
 }
 
+WrongCat::WrongCat(const WrongCat &other): WrongAnimal(other)
+{
+	std::cout << "WrongCat copy constructor called" << std::endl;
+	*this = other;
+}
+
 void WrongCat::makeSound() const
 {
 	std::cout << "Meow BArK!" << std::endl;
