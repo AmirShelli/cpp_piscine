@@ -5,7 +5,7 @@ ClapTrap::ClapTrap()
 	std::cout << "ClapTrap Default Constuctor Called" << std::endl;
 }
 
-ClapTrap::ClapTrap(std::string name):_name(name), _hitpoints(10), _energy_points(10), _attack_damage(0)
+ClapTrap::ClapTrap(std::string name):_name(name), _hit(10), _energy(10), _attack(0)
 {
 	std::cout << "ClapTrap Initialize Constructor Called" << std::endl;
 }
@@ -20,16 +20,16 @@ ClapTrap & ClapTrap::operator= (const ClapTrap &c1)
 {
 	std::cout << "ClapTrap Assignation Operator Called" << std::endl;
 	this->_name = c1._name;
-	this->_hitpoints = c1._hitpoints;
-	this->_energy_points = c1._energy_points;
-	this->_attack_damage = c1._attack_damage;
+	this->_hit = c1._hit;
+	this->_energy = c1._energy;
+	this->_attack = c1._attack;
 	return (*this);
 }
 
 void	ClapTrap::attack(std::string const & target)
 {
-	std::cout << "ClapTrap <" << this->_name << ">" << "attack <" << target << ">,";
-	std::cout << " causing <" << this->_attack_damage << "> points of damage !" << std::endl;
+	std::cout << "ClapTrap " << this->_name << " attack " << target << ",";
+	std::cout << " causing " << this->_attack << " points of damage" << std::endl;
 }
 
 void	ClapTrap::takeDamage(unsigned int amount)

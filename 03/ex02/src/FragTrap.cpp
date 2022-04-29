@@ -50,7 +50,7 @@ FragTrap & FragTrap::operator= (const FragTrap &other)
 
 void    FragTrap::attack(const std::string &target)
 {
-	if(this->_hit)
+	if(_hit && _energy)
 		std::cout << "FragTrap " << this->_name << " attack " << target << ", causing " << this->_attack<< " points of damage!" << std::endl;
 }
 
@@ -91,5 +91,6 @@ void FragTrap::beRepaired(unsigned int amount)
 
 void    FragTrap::highFivesGuys()
 {
-    std::cout << this->_name << " requests a positive high five?" << std::endl;
+	if(_hit && _energy)
+		std::cout << this->_name << " requests a positive high five?" << std::endl;
 }

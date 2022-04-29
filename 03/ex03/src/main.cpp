@@ -3,7 +3,7 @@
 int main()
 {
     DiamondTrap diamond("hello");
-    diamond.attack("psps");
+    diamond.attack("bye");
     diamond.whoAmI();
     return 0;
 }

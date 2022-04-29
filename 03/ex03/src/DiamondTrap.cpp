@@ -16,9 +16,9 @@ DiamondTrap & DiamondTrap::operator=(const DiamondTrap & d1)
     std::cout << "DiamondTrap Assignation operator Called" << std::endl;
     this->_Name = d1._Name;
     this->_name = d1._name;
-    this->_hitpoints = d1._hitpoints;
-    this->_energy_points = d1._energy_points;
-    this->_attack_damage = d1._attack_damage;
+    this->_hit = d1._hit;
+    this->_energy = d1._energy;
+    this->_attack = d1._attack;
     return (*this);
 }
 
@@ -27,11 +27,11 @@ DiamondTrap::DiamondTrap(std::string name): ScavTrap(name), FragTrap(name)
     std::cout << "DiamondTrap Initialize Constructor Called" << std::endl;
     _Name = name;
     ClapTrap::_name = name + "_clap_name";
-    _hitpoints = FragTrap::_hitpoints;
+    _hit = FragTrap::_hit;
 
-    _energy_points = 50;
+    _energy = 50;
 
-    _attack_damage = FragTrap::_attack_damage;
+    _attack = FragTrap::_attack;
 
 }
 

@@ -50,7 +50,7 @@ ScavTrap & ScavTrap::operator= (const ScavTrap &other)
 
 void    ScavTrap::attack(const std::string &target)
 {
-	if(this->_hit)
+	if(_hit && _energy)
 		std::cout << "ScavTrap " << this->_name << " attack " << target << ", causing " << this->_attack<< " points of damage!" << std::endl;
 }
 
