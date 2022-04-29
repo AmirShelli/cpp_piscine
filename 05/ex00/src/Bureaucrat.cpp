@@ -1,5 +1,4 @@
 #include "../inc/Bureaucrat.hpp"
-#include "../inc/Form.hpp"
 
 Bureaucrat::Bureaucrat()
 {
@@ -8,24 +7,29 @@ Bureaucrat::Bureaucrat()
 
 Bureaucrat::Bureaucrat(const std::string name, int grade): _name(name)
 {
-	std::cout << "Initialize constructor called" << std::endl;
-	if(grade < 1)
+	std::cout << "Initialize constructor called with a string" << std::endl;
+	if(grade < 1){
 		throw GradeTooHighException();
-	if(grade > 150)
+		this->_grade = 1;
+	}
+	else if(grade > 150){
 		throw GradeTooLowException();
-	this->_grade = grade;
+		this->_grade = 150;	
+	}
+	else
+		this->_grade = grade;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat &other)
+Bureaucrat::Bureaucrat(const Bureaucrat& copy) 
 {
-	std::cout << "Copy Constructor Called" << std::endl;
-	*this = other;
+	*this = copy;
 }
 
-Bureaucrat & Bureaucrat::operator= (const Bureaucrat &other)
+Bureaucrat & Bureaucrat::operator=(const Bureaucrat& op)
 {
-	std::cout << "Assignation Operator Called" << std::endl;
-	this->_grade = other._grade;
+	if (this == &op)
+		return (*this);
+	this->_grade = op._grade;
 	return (*this);
 }
 
@@ -53,14 +57,16 @@ void Bureaucrat::promote(void) throw(std::exception)
 {
     if (_grade == 1)
         throw GradeTooHighException();
-    _grade --;
+    else 
+		_grade--;
 }
 
 void Bureaucrat::demote(void) throw(std::exception)
 {
     if (_grade == 150)
         throw GradeTooLowException();
-    _grade ++ 1;
+    else
+		_grade++;
 }
 
 Bureaucrat::~Bureaucrat(void) 
