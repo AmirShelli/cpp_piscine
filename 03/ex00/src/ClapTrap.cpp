@@ -49,10 +49,10 @@ void ClapTrap::takeDamage(unsigned int amount)
 {
 	if(this->_hit)
 	{
-		if (amount > 10)
-			amount = 10;
+		if (amount > _hit)
+			amount = _hit;
 		std::cout << "ClapTrap " << this->_name 
-			<< " lost " << this->_attack 
+			<< " lost " << amount 
 			<< " hit points!" << std::endl;
 		this->_hit -= amount;
 	}

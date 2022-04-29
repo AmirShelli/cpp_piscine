@@ -19,7 +19,7 @@ ScavTrap::~ScavTrap()
 
 ScavTrap::ScavTrap(std::string name)
 {
-	std::cout << "Initialize constructor called" << std::endl;
+	std::cout << "Initialize constructor called SCAV" << std::endl;
 	this->_name = name;
 	this->_hitC = 100;
 	this->_energyC = 50;
@@ -37,7 +37,7 @@ ScavTrap::ScavTrap(const ScavTrap &st1): ClapTrap(st1)
 
 ScavTrap & ScavTrap::operator= (const ScavTrap &other)
 {
-	std::cout << "Assignation Operator Called" << std::endl;
+	std::cout << "Assignation Operator Called SCAV" << std::endl;
 	this->_hitC = other._hitC;
 	this->_energyC = other._attackC;
 	this->_attackC = other._energyC;
