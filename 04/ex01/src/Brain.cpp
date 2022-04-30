@@ -6,7 +6,8 @@ Brain::Brain()
 
 	for (int i = 0; i < 100; i++)
     {
-        _ideas[i] = "string in ideas " + std::to_string(i);
+        _ideas[i] = "string in ideas.";
+		//  + std::to_string(i);
     }
 }
 
@@ -34,7 +35,7 @@ Brain & Brain::operator= (const Brain &other)
 	return (*this);
 }
 
-std::string Brain::getIdeas(const int i) const
-{
-    return (_ideas[i]);
-}
+// std::string Brain::getIdeas(const int i) const
+// {
+//     return (_ideas[i]);
+// }

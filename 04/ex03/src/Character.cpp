@@ -58,18 +58,20 @@ void Character::unequip(int idx)
     if (idx >= 0 && idx < 4)
     {
         _inventory[idx] = NULL;
-    }
-    _count_m--;
+    }  
     for (int i = idx; i < _count_m; i++)
     {
         _inventory[i] = _inventory[i + 1];
     }
-    
+    _count_m--;
 }
 
 void Character::use(int idx, ICharacter& target)
 {
-    _inventory[idx]->use(target);
+	if(idx >= 0 && idx < 4 && _inventory[idx])
+		_inventory[idx]->use(target);
+	else
+		std::cout << "oops, can't use this\n";
 }
 
 void Character::deleting_inv()
