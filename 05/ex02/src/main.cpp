@@ -9,8 +9,8 @@ int main()
     try
     {
         Bureaucrat b1("bureaucrat name", 10);
-        b1.decrement();
-        b1.decrement();
+        b1.demote();
+        b1.demote();
         std::cout << b1 << std::endl;
         Form *f1 = new ShrubberyCreationForm("1Test_Shrubbery");
         b1.signForm(*f1);
@@ -26,7 +26,7 @@ int main()
     try
     {
         Bureaucrat b2("bureaucrat2 name", 10);
-        b2.decrement();
+        b2.demote();
         std::cout << b2 << std::endl;
         Form *f2 = new RobotomyRequestForm("2Test_Robot");
         b2.signForm(*f2);
@@ -42,7 +42,7 @@ int main()
     try
     {
         Bureaucrat b3("bureaucrat3 name", 1);
-        b3.decrement();
+        b3.demote();
         std::cout << b3 << std::endl;
         Form *f3 = new PresidentialPardonForm("PresidentialPardon");
         b3.signForm(*f3);

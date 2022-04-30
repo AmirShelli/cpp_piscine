@@ -9,36 +9,45 @@ class Bureaucrat;
 class Form
 {
 private:
-	const std::string	_name;
-	bool				_signed;
-	const int			_grade_sign;
-	const int			_grade_exec;
+	const std::string _name;
+	bool _isSigned;
+	const int _gradeSign;
+	const int _gradeExec;
 public:
 	Form();
+	Form(const std::string name, const int sign, const int exec);
 	~Form();
-	Form(const std::string name, const int grade_sign, const int grade_exec);
-	Form(const Form &f1);
-	Form & operator=(const Form &f1);
+	Form(const Form& obj);
+	const std::string &getName() const;
+	bool &getStatus();
+	const int &getGrdSign() const;
+	const int &getGrdExec() const;
+	void beSigned(Bureaucrat a);
+
+	Form& operator= (const Form &obj);
 
 	class GradeTooHighException : public std::exception
-	{
-		const char* what() const throw();
-	};
+    {
+    public:
+        const char *what(void) const throw();
+    };
+	
 	class GradeTooLowException : public std::exception
-	{
-		const char* what() const throw();  
-	};
+    {
+	public:
+        const char *what(void) const throw();
+    };
+
+	class IsAlreadySignedException : public std::exception
+    {
+	public:
+        const char *what(void) const throw();
+    };
 	class UnsignedFormException : public std::exception
 	{
 		virtual const char* what() const throw();
 	};
-		
-	const std::string&	getName() const;
-	bool const &		getSign() const;
-	int const &			getGradeSign() const;
-	int	const &			getGradeExec() const;
 	
-	void beSigned(Bureaucrat &b);
 	virtual void action() const = 0;
 	virtual void execute(Bureaucrat const & executor) const;
 };
