@@ -3,31 +3,32 @@
 
 Bureaucrat::Bureaucrat()
 {
-	std::cout << "Bureaucrat default constructor called" << std::endl;
+	std::cout << "Bureaucrat default constructor" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const std::string name, int grade): _name(name)
 {
-	std::cout << "Initialize constructor called" << std::endl;
-	if(grade < 1)
+	std::cout << "Initialize constructor called "  << getName() << std::endl;
+	if(grade < 1){
 		throw GradeTooHighException();
-	if(grade > 150)
+		this->_grade = 1;
+	}
+	else if(grade > 150){
 		throw GradeTooLowException();
-	this->_grade = grade;
+		this->_grade = 150;	
+	}
+	else
+		this->_grade = grade;
 }
 
-// Bureaucrat::Bureaucrat(const Bureaucrat &other)
-// {
-// 	std::cout << "Copy Constructor Called" << std::endl;
-// 	*this = other;
-// }
+Bureaucrat::Bureaucrat(const Bureaucrat &other) : _name(other._name), _grade(other._grade) {}
 
-// Bureaucrat & Bureaucrat::operator= (const Bureaucrat &other)
-// {
-// 	std::cout << "Assignation Operator Called" << std::endl;
-// 	this->_grade = other._grade;
-// 	return (*this);
-// }
+Bureaucrat & Bureaucrat::operator= (const Bureaucrat &other)
+{
+	std::cout << "Assignation Operator Called" << std::endl;
+	this->_grade = other._grade;
+	return (*this);
+}
 
 int &Bureaucrat::getGrade()
 {
@@ -39,28 +40,30 @@ const std::string &Bureaucrat::getName() const
 	return this->_name;
 }
 
-const char *Bureaucrat::GradeTooHighException::what(void) const _NOEXCEPT
+const char *Bureaucrat::GradeTooHighException::what(void) const throw()
 {
-    return ("Grade is too high!");
+    return ("grade is too high!");
 }
 
-const char *Bureaucrat::GradeTooLowException::what(void) const _NOEXCEPT
+const char *Bureaucrat::GradeTooLowException::what(void) const throw()
 {
-    return ("Grade is too low!");
+    return ("grade is too low!");
 }
 
-void Bureaucrat::promote(void) throw(std::exception)
+void Bureaucrat::promote(void)
 {
     if (_grade == 1)
         throw GradeTooHighException();
-    _grade -= 1;
+    else
+		this->_grade --;
 }
 
-void Bureaucrat::demote(void) throw(std::exception)
+void Bureaucrat::demote(void)
 {
     if (_grade == 150)
         throw GradeTooLowException();
-    _grade += 1;
+    else
+		this->_grade ++;
 }
 
 Bureaucrat::~Bureaucrat(void) 

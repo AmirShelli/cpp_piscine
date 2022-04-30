@@ -11,27 +11,27 @@ class Bureaucrat
 private:
 	const std::string _name;
 	int _grade;
+	Bureaucrat& operator= (const Bureaucrat &obj);
 public:
 	Bureaucrat();
 	Bureaucrat(const std::string name, int grade);
 	~Bureaucrat();
-	// Bureaucrat(const Bureaucrat& obj);
-	// Bureaucrat& operator= (const Bureaucrat &obj);
+	Bureaucrat(const Bureaucrat& obj);
 	int &getGrade();
 	const std::string &getName() const;
-	void promote() throw(std::exception);
-	void demote() throw(std::exception);
+	void promote();
+	void demote();
 	void signForm(Form &form);
 	class GradeTooHighException : public std::exception
     {
     public:
-        const char *what(void) const _NOEXCEPT;
+        const char *what(void) const throw();
     };
 
     class GradeTooLowException : public std::exception
     {
 	public:
-        const char *what(void) const _NOEXCEPT;
+        const char *what(void) const throw();
     };
 };
 

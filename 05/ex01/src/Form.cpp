@@ -6,29 +6,38 @@ Form::Form():_name("name"), _gradeSign(1), _gradeExec(1)
 	this->_isSigned = 0;
 }
 
+Form::Form(const Form& other): _name(other._name), _isSigned(other._isSigned), _gradeSign(other._gradeSign), _gradeExec(other._gradeExec) {}
+
 Form::~Form()
 {
 	std::cout << "Destructor called for " << this->_name << std::endl;
 }
 
-const char *Form::GradeTooLowException::what(void) const _NOEXCEPT
+const char *Form::GradeTooLowException::what(void) const throw()
 {
     return ("grade is too low!");
 }
 
-const char *Form::GradeTooHighException::what(void) const _NOEXCEPT
+const char *Form::GradeTooHighException::what(void) const throw()
 {
     return ("grade is too high!");
 }
+
+const char *Form::isAlreadySigned::what(void) const throw()
+{
+	return ("it's already signed!");
+}
+
 
 Form::Form(const std::string name, const int sign, const int exec): _name(name), _gradeSign(sign), _gradeExec(exec)
 {
 	std::cout << "Initialize constructor called for Form " << _name << std::endl;
 	this->_isSigned = 0;
 	if (_gradeSign < 1 || _gradeExec < 1)
-        throw GradeTooHighException();
-    else if (_gradeSign > 150 || _gradeExec > 150)
-        throw GradeTooLowException();
+		throw GradeTooHighException();
+	else if (_gradeSign > 150 || _gradeExec > 150)
+		throw GradeTooLowException();
+		
 }
 
 const std::string &Form::getName() const
@@ -50,6 +59,8 @@ const int &Form::getGrdExec() const
 
 void Form::beSigned(Bureaucrat a)
 {
+	if(this->_isSigned)
+		throw IsAlreadySignedException();
 	if(a.getGrade() <= _gradeSign)
 		this->_isSigned = 1;
 	else
@@ -58,9 +69,9 @@ void Form::beSigned(Bureaucrat a)
 
 std::ostream &operator<<(std::ostream &os, Form obj)
 {
-	os << "Form " << obj.getName() <<":\n"
-	<< "signture? " <<obj.getStatus() << std::endl
-	<< "needed grade to sign? " <<obj.getGrdSign() << std::endl
-	<< "needed grade to execute?" <<obj.getGrdExec() << std::endl;
+	os << "Form: " << obj.getName() <<"\n"
+	<< "is signed: " << (obj.getStatus() ? "yes" : "no") << std::endl
+	<< "needed grade to sign: " << obj.getGrdSign() << std::endl
+	<< "needed grade to execute: " << obj.getGrdExec() << std::endl;
 	return os;
 }

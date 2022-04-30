@@ -11,60 +11,66 @@ void printForm(Bureaucrat arr[4])
     for (int i = 0; i < 3; i++)
         std::cout << arr[i] << std::endl;
 }
-// void test_1()
-// {
-//     std::cout << std::endl;
-//     std::cout << "[test_1]" << std::endl;
-//     try
-//     {
-//         Bureaucrat Shin("Bob", 1);
-//         Bureaucrat Kang("Kang", 50);
-//         Bureaucrat Park("Park", 100);
-//         Form a("a", 70, 140);
-//         Form b("b", 10, 20);
-//         Shin.signForm(a);
-//         Shin.signForm(b);
-//         std::cout << ">---------------------------------<" << std::endl;
-//         Kang.signForm(a);
-//         Kang.signForm(b);
-//         std::cout << ">---------------------------------<" << std::endl;
-//         Park.signForm(a);
-//         Park.signForm(b);
-//     }
-//     catch (const std::exception &e)
-//     {
-//         std::cerr << e.what() << '\n';
-//     }
-// }
-void test_2()
+void test_1()
 {
     std::cout << std::endl;
-    std::cout << "[test_2]" << std::endl;
+    std::cout << "[test_1]" << std::endl;
     try
     {
-        Bureaucrat Shin("Shin", -1);
-        Bureaucrat Kang("Kang", 50);
-        Bureaucrat Park("Park", 100);
-        Bureaucrat Kim("Kim", 150);
-        Bureaucrat arr[4] = {Shin, Kang, Park, Kim};
-        printBureaucrat(arr);
+        Bureaucrat bob("Bob", 1);
+        Bureaucrat lark("Lark", 50);
+        Bureaucrat mark("Mark", 100);
+        Form a("a", 70, 140);
+        Form b("b", 10, 20);
+        bob.signForm(a);
+        bob.signForm(b);
+        std::cout << ">---------------------------------<" << std::endl;
+        lark.signForm(a);
+        lark.signForm(b);
+        std::cout << ">---------------------------------<" << std::endl;
+        mark.signForm(a);
+        mark.signForm(b);
+
+		std::cout << a << std::endl;
+		std::cout << b << std::endl;
+		std::cout << bob << std::endl;
+		std::cout << lark << std::endl;
+		std::cout << mark << std::endl;
     }
     catch (const std::exception &e)
     {
         std::cerr << e.what() << '\n';
     }
 }
+// void test_2()
+// {
+//     std::cout << std::endl;
+//     std::cout << "[test_2]" << std::endl;
+//     try
+//     {
+//         Bureaucrat bob("bob", -1);
+//         Bureaucrat lark("Lark", 50);
+//         Bureaucrat mark("Mark", 100);
+//         Bureaucrat Kim("Kim", 150);
+//         Bureaucrat arr[4] = {bob, lark, mark, Kim};
+//         printBureaucrat(arr);
+//     }
+//     catch (const std::exception &e)
+//     {
+//         std::cerr << e.what() << '\n';
+//     }
+// }
 // void test_3()
 // {
 //     std::cout << std::endl;
 //     std::cout << "[test_3]" << std::endl;
 //     try
 //     {
-//         Bureaucrat Shin("Shin", 1);
-//         Bureaucrat Kang("Kang", 50);
-//         Bureaucrat Park("Park", 100);
+//         Bureaucrat bob("bob", 1);
+//         Bureaucrat lark("Lark", 50);
+//         Bureaucrat mark("Mark", 100);
 //         Bureaucrat Kim("Kim", 1500);
-//         Bureaucrat arr[4] = {Shin, Kang, Park, Kim};
+//         Bureaucrat arr[4] = {bob, lark, mark, Kim};
 //         print(arr);
 //     }
 //     catch (const std::exception &e)
@@ -78,13 +84,13 @@ void test_2()
 //     std::cout << "[test_4]" << std::endl;
 //     try
 //     {
-//         Bureaucrat Shin("Shin", 1);
-//         Bureaucrat Kang("Kang", 50);
-//         Bureaucrat Park("Park", 100);
+//         Bureaucrat bob("bob", 1);
+//         Bureaucrat lark("Lark", 50);
+//         Bureaucrat mark("Mark", 100);
 //         Bureaucrat Kim("Kim", 150);
-//         Bureaucrat arr[4] = {Shin, Kang, Park, Kim};
+//         Bureaucrat arr[4] = {bob, lark, mark, Kim};
 //         print(arr);
-//         Shin.setGradeIncrement();
+//         bob.setGradeIncrement();
 //     }
 //     catch (const std::exception &e)
 //     {
@@ -97,11 +103,11 @@ void test_2()
 //     std::cout << "[test_5]" << std::endl;
 //     try
 //     {
-//         Bureaucrat Shin("Shin", 1);
-//         Bureaucrat Kang("Kang", 50);
-//         Bureaucrat Park("Park", 100);
+//         Bureaucrat bob("bob", 1);
+//         Bureaucrat lark("Lark", 50);
+//         Bureaucrat mark("Mark", 100);
 //         Bureaucrat Kim("Kim", 150);
-//         Bureaucrat arr[4] = {Shin, Kang, Park, Kim};
+//         Bureaucrat arr[4] = {bob, lark, mark, Kim};
 //         print(arr);
 //         Kim.setGradeDecrement();
 //     }
@@ -116,18 +122,18 @@ void test_2()
 //     std::cout << "[test_6]" << std::endl;
 //     try
 //     {
-//         Bureaucrat Shin("Shin", 1);
-//         Bureaucrat Kang("Kang", 50);
-//         Bureaucrat Park("Park", 100);
+//         Bureaucrat bob("bob", 1);
+//         Bureaucrat lark("Lark", 50);
+//         Bureaucrat mark("Mark", 100);
 //         Bureaucrat Kim("Kim", 150);
-//         Bureaucrat arr[4] = {Shin, Kang, Park, Kim};
+//         Bureaucrat arr[4] = {bob, lark, mark, Kim};
 //         print(arr);
 //         std::cout << std::endl;
-//         Kang.setGradeIncrement();
-//         Kang.setGradeIncrement();
-//         Park.setGradeDecrement();
-//         Park.setGradeDecrement();
-//         Bureaucrat arr_2[4] = {Shin, Kang, Park, Kim};
+//         lark.setGradeIncrement();
+//         lark.setGradeIncrement();
+//         mark.setGradeDecrement();
+//         mark.setGradeDecrement();
+//         Bureaucrat arr_2[4] = {bob, lark, mark, Kim};
 //         print(arr_2);
 //     }
 //     catch (const std::exception &e)
@@ -143,18 +149,18 @@ void test_2()
 //     try
 //     {
 
-//         Bureaucrat Shin("Shin", 1);
-//         Bureaucrat Kang("Kang", 10);
-//         Bureaucrat Park("Park", 100);
+//         Bureaucrat bob("bob", 1);
+//         Bureaucrat lark("Lark", 10);
+//         Bureaucrat mark("Mark", 100);
 //         Bureaucrat Kim("Kim", 150);
-//         Bureaucrat arr[4] = {Shin, Kang, Park, Kim};
+//         Bureaucrat arr[4] = {bob, lark, mark, Kim};
 //         print(arr);
 //         std::cout << std::endl;
 //         for (int i = 0; i < 10; i++)
 //         {
 
-//             std::cout << "index = " << i << ",  " << Kang << std::endl;
-//             Kang.setGradeIncrement();
+//             std::cout << "index = " << i << ",  " << lark << std::endl;
+//             lark.setGradeIncrement();
 //         }
 //     }
 //     catch (const std::exception &e)
@@ -164,8 +170,8 @@ void test_2()
 // }
 int main(void)
 {
-    // test_1();
-    test_2();
+    test_1();
+    // test_2();
     // test_3();
     // test_4();
     // test_5();
