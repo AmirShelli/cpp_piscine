@@ -39,7 +39,16 @@ int main()
 		std::cout << "x: " << x << "      y: " << y << std::endl;
 		
 		std::cout << "min: " << min(x, y) << std::endl;
-		std::cout << "max: " << max(a, b) << std::endl;
+		std::cout << "max: " << max(x, y) << std::endl;
+
+		char	w = 'a';
+		char	z = 'a';
+		std::cout << "x: " << w << "      y: " << z << std::endl;
+		swap(w, z);
+		std::cout << "x: " << w << "      y: " << z << std::endl;
+		
+		std::cout << "min: " << min(w, z) << std::endl;
+		std::cout << "max: " << max(w, z) << std::endl;
 	}
 	return (0);
 }
