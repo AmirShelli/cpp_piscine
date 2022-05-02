@@ -22,7 +22,7 @@ double       Convert::toTreatable(std::string const & totreat)
 			&& totreat[0] == '\''
 			&& totreat[2] == '\'')
 			return (static_cast<double>(totreat[1]));
-		to_treat = std::stof(totreat);
+		to_treat = std::stod(totreat);
 	}
 	catch (std::exception & e) { throw Convert::NotConvertible(); }
 
