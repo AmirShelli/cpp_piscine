@@ -10,23 +10,24 @@ Base *generate(void) {
 	return (new C);
 }
 
-void showType(Base *p) {
-	if (dynamic_cast<A*>(p) != nullptr)
-		std::cout << "A";
-	else if (dynamic_cast<B*>(p) != nullptr)
-		std::cout << "B";
-	else if (dynamic_cast<C*>(p) != nullptr)
-		std::cout << "C";
-}
-
 void identify(Base *p) {
-	showType(p);
+	if (dynamic_cast<A*>(p))
+		std::cout << "A";
+	else if (dynamic_cast<B*>(p))
+		std::cout << "B";
+	else if (dynamic_cast<C*>(p))
+		std::cout << "C";
 }
 
 void identify(Base &p) {
 	try
 	{
-		showType(&p);
+		if (dynamic_cast<A*>(&p))
+			std::cout << "A" << std::endl;
+		else if (dynamic_cast<B*>(&p))
+			std::cout << "B" << std::endl;
+		else if (dynamic_cast<C*>(&p))
+			std::cout << "C" << std::endl;
 	}
 	catch (std::exception &e)
 	{
