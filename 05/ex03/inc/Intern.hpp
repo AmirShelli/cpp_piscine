@@ -16,7 +16,7 @@ public:
     ~Intern();
     class ErrorException : public std::exception
 	{
-		virtual const char* what() const throw();
+		const char* what() const throw();
 	};
 };
 

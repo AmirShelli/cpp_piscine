@@ -38,6 +38,6 @@ public:
 	
 };
 
-std::ostream & operator<<(std::ostream & os, Bureaucrat const & b);
+std::ostream &operator<<(std::ostream &os, Bureaucrat &obj);
 
 #endif

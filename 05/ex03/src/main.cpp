@@ -15,7 +15,7 @@ int main()
 		// rrf = someRandomIntern.makeForm("PresidentialPardon", "Bender");
 		// rrf = someRandomIntern.makeForm("RobotomyRequest", "Bender");
 		rrf = someRandomIntern.makeForm("ShrubberyCreation ", "Bender");
-		bureaucrat2.signForm(*rrf);
+		// bureaucrat2.signForm(*rrf);
 		bureaucrat2.executeForm(*rrf);
 		delete rrf;
 	}

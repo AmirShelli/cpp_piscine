@@ -16,7 +16,7 @@ private:
 public:
 	Form();
 	Form(const std::string name, const int sign, const int exec);
-	~Form();
+	virtual ~Form();
 	Form(const Form& obj);
 	const std::string &getName() const;
 	bool &getStatus();
@@ -45,7 +45,7 @@ public:
     };
 	class UnsignedFormException : public std::exception
 	{
-		virtual const char* what() const throw();
+		const char* what() const throw();
 	};
 	
 	virtual void action() const = 0;

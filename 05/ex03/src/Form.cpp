@@ -1,96 +1,102 @@
 #include "../inc/Form.hpp"
 
-Form::Form():_name(""),_signed(false),_grade_sign(150), _grade_exec(150)
+Form::Form():_name("name"), _gradeSign(1), _gradeExec(1)
 {
-    std::cout <<"Form Default Constructor Called" << std::endl;
+	std::cout << "Form default constructor called" << std::endl;
+	this->_isSigned = 0;
 }
 
-Form::Form(const std::string name, const int grade_sign, const int grade_exec):_name(name), _signed(false), _grade_sign(grade_sign), _grade_exec(grade_exec)
-{
-    std::cout <<"Form parameterize constructor called"<<std::endl;
-    if (_grade_sign < 1 || _grade_exec < 1)
-        throw GradeTooHighException();
-    else if (_grade_exec > 150 || _grade_sign > 150)
-        throw GradeTooLowException();
-}
-
-Form::Form(const Form &f1):_name(""),_signed(false), _grade_sign(150), _grade_exec(150)
-{
-    std::cout <<"Form Copy Constructor Called" << std::endl;
-    *this = f1;
-}
-
-Form & Form::operator=(const Form &f1)
-{
-    std::cout <<"Form Assignement operator Called" << std::endl;
-    this->_signed = f1._signed;
-    return (*this);
-}
-
-const char* Form::GradeTooHighException::what() const throw()
-{
-    return ("Grade Too High");
-}
-
-const char* Form::GradeTooLowException::what() const throw()
-{
-    return("Grade Too Low");
-}
-
-const char* Form::UnsignedFormException::what() const throw()
-{
-    return ("Unsigned Form");
-}
-
-const std::string& Form::getName() const
-{
-    return (_name);
-}
-
-bool const & Form::getSign() const
-{
-    return (_signed);
-}
-
-int const & Form::getGradeSign() const
-{
-    return (_grade_sign);
-}
-
-int const & Form::getGradeExec() const
-{
-    return (_grade_exec);
-}
+Form::Form(const Form& other): _name(other._name), _isSigned(other._isSigned), _gradeSign(other._gradeSign), _gradeExec(other._gradeExec) {}
 
 Form::~Form()
 {
-    std::cout <<"Form Destructor Called" << std::endl;
+	std::cout << "Destructor called for " << this->_name << std::endl;
 }
 
-std::ostream & operator<<(std::ostream &os, Form &f1)
+const char *Form::GradeTooLowException::what(void) const throw()
 {
-    os << "name :<"<<f1.getName()<<"> sign:<"<<f1.getSign()<<"> grade sign:<"<<f1.getGradeSign()<<"> grade execute:<"<<f1.getGradeExec()<<std::endl;
-    return (os);
+    return ("grade is too low!");
 }
 
-void    Form::beSigned(Bureaucrat &b)
+const char *Form::GradeTooHighException::what(void) const throw()
 {
-    if (b.getGrade() <= _grade_sign)
-        _signed = true;
-    else
-        throw Bureaucrat::GradeTooLowException();
+    return ("grade is too high!");
+}
+
+const char *Form::IsAlreadySignedException::what(void) const throw()
+{
+	return ("it's already signed!");
+}
+
+
+Form::Form(const std::string name, const int sign, const int exec): _name(name), _gradeSign(sign), _gradeExec(exec)
+{
+	std::cout << "Initialize constructor called for Form " << _name << std::endl;
+	this->_isSigned = 0;
+	if (_gradeSign < 1 || _gradeExec < 1)
+		throw GradeTooHighException();
+	else if (_gradeSign > 150 || _gradeExec > 150)
+		throw GradeTooLowException();
+		
+}
+
+const std::string &Form::getName() const
+{
+	return this->_name;
+}
+bool &Form::getStatus()
+{
+	return this->_isSigned;
+}
+const int &Form::getGrdSign() const
+{
+	return _gradeSign;
+}
+const int &Form::getGrdExec() const
+{
+	return _gradeExec;
+}
+
+void Form::beSigned(Bureaucrat a)
+{
+	if(this->_isSigned)
+		throw IsAlreadySignedException();
+	if(a.getGrade() <= _gradeSign)
+		this->_isSigned = 1;
+	else
+		throw GradeTooLowException();
+}
+
+std::ostream &operator<<(std::ostream &os, Form & obj)
+{
+	os << "Form: " << obj.getName() <<"\n"
+	<< "is signed: " << (obj.getStatus() ? "yes" : "no") << std::endl
+	<< "needed grade to sign: " << obj.getGrdSign() << std::endl
+	<< "needed grade to execute: " << obj.getGrdExec() << std::endl;
+	return os;
 }
 
 void			Form::execute(Bureaucrat const & executor) const
 {
-	if (this->_signed == false)
+	if (this->_isSigned == false)
 		throw UnsignedFormException();
 	else
 	{
-		if (executor.getGrade() <= this->_grade_exec)
+		if (executor.getGrade() <= this->_gradeExec)
 			this->action();
 		else
 			throw GradeTooLowException();
 	}
 }
 
+Form & Form::operator=(const Form &f1)
+{
+    std::cout <<"Form Assignement operator Called" << std::endl;
+    this->_isSigned = f1._isSigned;
+    return (*this);
+}
+
+const char* Form::UnsignedFormException::what() const throw()
+{
+    return ("Unsigned Form");
+}

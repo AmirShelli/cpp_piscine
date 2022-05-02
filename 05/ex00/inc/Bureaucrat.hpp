@@ -9,7 +9,7 @@ private:
 	const std::string _name;
 	int _grade;
 
-	Bureaucrat(const Bureaucrat& obj);
+	
 	Bureaucrat& operator= (const Bureaucrat &obj);
 public:
 	Bureaucrat();
@@ -18,18 +18,18 @@ public:
 	
 	int &getGrade();
 	const std::string &getName() const;
-	
+	Bureaucrat(const Bureaucrat& obj);
 	void promote() throw(std::exception);
 	void demote() throw(std::exception);
 
 	class GradeTooHighException : public std::exception {
     public:
-        const char *what(void) const _NOEXCEPT;
+        const char *what(void) const throw();
     };
 
     class GradeTooLowException : public std::exception {
 	public:
-        const char *what(void) const _NOEXCEPT;
+        const char *what(void) const throw();
     };
 };
 
