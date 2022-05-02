@@ -11,16 +11,17 @@ private:
 	bool _isSigned;
 	const int _gradeSign;
 	const int _gradeExec;
-	Form& operator= (const Form &obj);
+	
 public:
 	Form();
+	Form& operator= (const Form &obj);
 	Form(const std::string name, const int sign, const int exec);
 	~Form();
 	Form(const Form& obj);
-	const std::string &getName() const;
-	bool &getStatus();
-	const int &getGrdSign() const;
-	const int &getGrdExec() const;
+	const std::string	&getName() const;
+	bool 				&getStatus();
+	const int			&getGrdSign() const;
+	const int			&getGrdExec() const;
 	void beSigned(Bureaucrat a);
 
 	class GradeTooHighException : public std::exception
@@ -35,7 +36,7 @@ public:
         const char *what(void) const throw();
     };
 
-	class isAlreadySigned : public std::exception
+	class IsAlreadySignedException : public std::exception
     {
 	public:
         const char *what(void) const throw();

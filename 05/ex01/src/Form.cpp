@@ -23,7 +23,7 @@ const char *Form::GradeTooHighException::what(void) const throw()
     return ("grade is too high!");
 }
 
-const char *Form::isAlreadySigned::what(void) const throw()
+const char *Form::IsAlreadySignedException::what(void) const throw()
 {
 	return ("it's already signed!");
 }
@@ -55,6 +55,13 @@ const int &Form::getGrdSign() const
 const int &Form::getGrdExec() const
 {
 	return _gradeExec;
+}
+
+Form & Form::operator=(const Form &f1)
+{
+    std::cout <<"Form Assignement operator Called" << std::endl;
+    this->_isSigned = f1._isSigned;
+    return (*this);
 }
 
 void Form::beSigned(Bureaucrat a)
