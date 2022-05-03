@@ -64,7 +64,7 @@ int Span::shortestSpan()
     else
     {
         std::sort(_v.begin(), _v.end());
-        return (*(_v.begin() + 1) - *(_v.begin()));
+        return (*(_v.begin() + 1) - *(_v.begin()) - 1);
     }
 }
 
