@@ -20,12 +20,12 @@ public:
 };
 
 template <typename T>
-Array<T>::Array(): _size(0), _ptr(nullptr) {std::cout << "Default Ctor Called from Array" << std::endl;}
+Array<T>::Array(): _size(0), _ptr(nullptr) {std::cout << "Default" << std::endl;}
 
 template <typename T>
 Array<T>::Array(unsigned int n): _size(n), _ptr(nullptr)
 {
-	std::cout << "Pzed Ctor called from Array" << std::endl;
+	std::cout << "Constructor" << std::endl;
 	this->_ptr = new T[this->_size]();
 }
 
@@ -54,9 +54,8 @@ Array<T>& Array<T>::operator=(Array<T> const& other)
 template <typename T>
 T&	Array<T>::operator[](unsigned int index)
 {
-	std::cout << index << std::endl;
 	if (index > this->_size)
-		throw std::out_of_range("out of the limits");
+		throw std::out_of_range("out of limits");
 	return (this->_ptr[index]);
 }
 
@@ -69,6 +68,7 @@ unsigned int const& Array<T>::size( void ) const
 template <typename T>
 Array<T>::~Array()
 {
+	std::cout << "Destructor" << std::endl;
 	if (this->_size > 0)
 		delete [] this->_ptr;
 }
