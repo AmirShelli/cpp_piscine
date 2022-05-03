@@ -1,4 +1,4 @@
-NAME = Span
+NAME = Mutant
 
 SRC =	$(wildcard ./src/*.cpp)
 INC = $(wildcard ./inc/*.hpp)
